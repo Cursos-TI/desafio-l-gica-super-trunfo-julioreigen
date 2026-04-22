@@ -6,38 +6,78 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
-
+    // Definição das variáveis
+    char estadoCarta1[1], estadoCarta2[1], codigoCarta1[4], codigoCarta2[4], 
+    cidadeCarta1[40], cidadeCarta2[40];
+    unsigned int populacaoCarta1, populacaoCarta2;
+    int pontosTuristicosC1, pontosTuristicosC2;
+    float areaCarta1, pibCarta1, areaCarta2, pibCarta2, densidadeCarta1, 
+    densidadeCarta2, perCaptaCarta1, perCaptaCarta2, 
+    superPoderCarta1, superPoderCarta2;
     
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
+    // Cadastro das Cartas
+    printf("Digite os dados da primeira carta!\n\n");
+    printf("Estado (A a H): ");
+    scanf("%s", &estadoCarta1);
+    printf("Código da carta: ");
+    scanf("%s", &codigoCarta1);
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", cidadeCarta1);
+    printf("População: ");
+    scanf("%d", &populacaoCarta1);
+    printf("Área (em km²): ");
+    scanf("%f", &areaCarta1);
+    printf("PIB: ");
+    scanf("%f", &pibCarta1);
+    printf("Número de Pontos Turísticos: ");
+    scanf("%d", &pontosTuristicosC1);
+
+  // Entrada de dados da segunda carta
+    printf("\nDigite os dados da segunda carta!\n\n");
+    printf("Estado (A a H): ");
+    scanf("%s", &estadoCarta2);
+    printf("Código da carta: ");
+    scanf("%s", &codigoCarta2);
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", cidadeCarta2);
+    printf("População: ");
+    scanf("%d", &populacaoCarta2);
+    printf("Área (em km²): ");
+    scanf("%f", &areaCarta2);
+    printf("PIB: ");
+    scanf("%f", &pibCarta2);
+    printf("Número de Pontos Turísticos: ");
+    scanf("%d", &pontosTuristicosC2);
+
+	densidadeCarta1 = (float) populacaoCarta1 / areaCarta1;
+	densidadeCarta2 = (float) populacaoCarta2 / areaCarta2;    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
     // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // utilize o código do primeiro desafiota2;
+	perCaptaCarta1 = (pibCarta1 * 1000000000.0f) / populacaoCarta1;
+	perCaptaCarta2 = (pibCarta2 * 1000000000.0f) / populacaoCarta2;
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+	superPoderCarta1 = populacaoCarta1 + areaCarta1 + pibCarta1 + pontosTuristicosC1 + perCaptaCarta1 + (1.0 * densidadeCarta1);
+	superPoderCarta2 = populacaoCarta2 + areaCarta2 + pibCarta2 + pontosTuristicosC2 + perCaptaCarta2 + (1.0 * densidadeCarta2);
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
-
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    // Comparação de Cartas
+    int resultadoPop = populacaoCarta1 > populacaoCarta2;
+    int resultadoArea = areaCarta1 > areaCarta2;
+    int resultadoPIB = pibCarta1 > pibCarta2;
+    int resultadoPtTur = pontosTuristicosC1 > pontosTuristicosC2;
+    int resultadoPIBpC = perCaptaCarta1 > perCaptaCarta2;
+    int resultadoDens = densidadeCarta1 < densidadeCarta2;
+    int resultadoSuperCarta = superPoderCarta1 > superPoderCarta2;
 
     // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    printf("Comparação de Cartas (Atributo: População): \n");
+    printf("Carta 1 - %s: %d\n", cidadeCarta1, populacaoCarta1);
+    printf("Carta 2 - %s: %d\n", cidadeCarta2, populacaoCarta2);
+    printf("Carta ");
+    if (resultadoPop == 1) {
+        printf("1 venceu.\n");
+    } else {
+        printf("2 venceu.\n");
+    }
 
     return 0;
 }
